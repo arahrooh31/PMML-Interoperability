@@ -1,0 +1,194 @@
+<PMML xmlns="http://www.dmg.org/PMML-4_4" version="4.4">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.6.34" />
+		<Timestamp>2022-02-07T21:46:49Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="repr">PMMLPipeline(steps=[('mapper', DataFrameMapper(drop_cols=[],
+                features=[(['age'], StandardScaler()), (['sex'], None),
+                          (['cp'],
+                           [CategoricalDomain(), OneHotEncoder(drop='first')]),
+                          (['trestbps'], StandardScaler()),
+                          (['chol'], StandardScaler()), (['fbs'], None),
+                          (['restecg'], StandardScaler()),
+                          (['thalach'], StandardScaler()), (['exang'], None),
+                          (['oldpeak'], StandardScaler()),
+                          (['slope'],
+                           [CategoricalDomain(), OneHotEncoder(drop='first')]),
+                          (['ca'], StandardScaler()),
+                          (['thal'],
+                           [CategoricalDomain(), OneHotEncoder(drop='first')])])),
+       ('classifier', LogisticRegression())])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="y" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+		</DataField>
+		<DataField name="age" optype="continuous" dataType="double" />
+		<DataField name="sex" optype="continuous" dataType="double" />
+		<DataField name="cp" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+			<Value value="2" />
+			<Value value="3" />
+		</DataField>
+		<DataField name="trestbps" optype="continuous" dataType="double" />
+		<DataField name="chol" optype="continuous" dataType="double" />
+		<DataField name="fbs" optype="continuous" dataType="double" />
+		<DataField name="restecg" optype="continuous" dataType="double" />
+		<DataField name="thalach" optype="continuous" dataType="double" />
+		<DataField name="exang" optype="continuous" dataType="double" />
+		<DataField name="oldpeak" optype="continuous" dataType="double" />
+		<DataField name="slope" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+			<Value value="2" />
+		</DataField>
+		<DataField name="ca" optype="continuous" dataType="double" />
+		<DataField name="thal" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+			<Value value="2" />
+			<Value value="3" />
+		</DataField>
+	</DataDictionary>
+	<RegressionModel functionName="classification" algorithmName="sklearn.linear_model._logistic.LogisticRegression" normalizationMethod="logit">
+		<MiningSchema>
+			<MiningField name="y" usageType="target" />
+			<MiningField name="sex" />
+			<MiningField name="cp" missingValueTreatment="asIs" />
+			<MiningField name="fbs" />
+			<MiningField name="exang" />
+			<MiningField name="slope" missingValueTreatment="asIs" />
+			<MiningField name="thal" missingValueTreatment="asIs" />
+			<MiningField name="age" />
+			<MiningField name="trestbps" />
+			<MiningField name="chol" />
+			<MiningField name="restecg" />
+			<MiningField name="thalach" />
+			<MiningField name="oldpeak" />
+			<MiningField name="ca" />
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0" />
+			<OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1" />
+		</Output>
+		<ModelStats>
+			<UnivariateStats field="cp">
+				<Counts totalFreq="242" missingFreq="0" invalidFreq="0" />
+				<DiscrStats>
+					<Array type="string">0 1 2 3</Array>
+					<Array type="int">112 42 70 18</Array>
+				</DiscrStats>
+			</UnivariateStats>
+			<UnivariateStats field="slope">
+				<Counts totalFreq="242" missingFreq="0" invalidFreq="0" />
+				<DiscrStats>
+					<Array type="string">0 1 2</Array>
+					<Array type="int">19 106 117</Array>
+				</DiscrStats>
+			</UnivariateStats>
+			<UnivariateStats field="thal">
+				<Counts totalFreq="242" missingFreq="0" invalidFreq="0" />
+				<DiscrStats>
+					<Array type="string">0 1 2 3</Array>
+					<Array type="int">2 13 138 89</Array>
+				</DiscrStats>
+			</UnivariateStats>
+		</ModelStats>
+		<LocalTransformations>
+			<DerivedField name="standardScaler(age)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="age" />
+						<Constant dataType="double">54.289256198347104</Constant>
+					</Apply>
+					<Constant dataType="double">8.923400397458957</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(trestbps)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="trestbps" />
+						<Constant dataType="double">132.91735537190084</Constant>
+					</Apply>
+					<Constant dataType="double">17.46736592462599</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(chol)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="chol" />
+						<Constant dataType="double">244.27685950413223</Constant>
+					</Apply>
+					<Constant dataType="double">48.753319463728076</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(restecg)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="restecg" />
+						<Constant dataType="double">0.5289256198347108</Constant>
+					</Apply>
+					<Constant dataType="double">0.5234087283824467</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(thalach)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="thalach" />
+						<Constant dataType="double">150.28925619834712</Constant>
+					</Apply>
+					<Constant dataType="double">23.592595146099356</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(oldpeak)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="oldpeak" />
+						<Constant dataType="double">1.0132231404958678</Constant>
+					</Apply>
+					<Constant dataType="double">1.1225665802382605</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(ca)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="ca" />
+						<Constant dataType="double">0.6983471074380165</Constant>
+					</Apply>
+					<Constant dataType="double">1.0183833786755887</Constant>
+				</Apply>
+			</DerivedField>
+		</LocalTransformations>
+		<RegressionTable intercept="0.22285860748720338" targetCategory="1">
+			<NumericPredictor name="standardScaler(age)" coefficient="-0.06752834578644216" />
+			<NumericPredictor name="sex" coefficient="-0.8988325129133378" />
+			<NumericPredictor name="standardScaler(trestbps)" coefficient="-0.06480934681548507" />
+			<NumericPredictor name="standardScaler(chol)" coefficient="-0.340614555882212" />
+			<NumericPredictor name="fbs" coefficient="0.2055180891089221" />
+			<NumericPredictor name="standardScaler(restecg)" coefficient="0.0737279244340013" />
+			<NumericPredictor name="standardScaler(thalach)" coefficient="0.4376069926788774" />
+			<NumericPredictor name="exang" coefficient="-0.9256295241853713" />
+			<NumericPredictor name="standardScaler(oldpeak)" coefficient="-0.34470433726056265" />
+			<NumericPredictor name="standardScaler(ca)" coefficient="-0.8066942882607561" />
+			<CategoricalPredictor name="cp" value="1" coefficient="0.3546330743260815" />
+			<CategoricalPredictor name="cp" value="2" coefficient="1.1986661369584373" />
+			<CategoricalPredictor name="cp" value="3" coefficient="1.354406091952133" />
+			<CategoricalPredictor name="slope" value="1" coefficient="-0.36358279292664053" />
+			<CategoricalPredictor name="slope" value="2" coefficient="0.2959925490723033" />
+			<CategoricalPredictor name="thal" value="1" coefficient="-0.18106665131737876" />
+			<CategoricalPredictor name="thal" value="2" coefficient="1.046283004443416" />
+			<CategoricalPredictor name="thal" value="3" coefficient="-0.6474615850499148" />
+		</RegressionTable>
+		<RegressionTable intercept="0.0" targetCategory="0" />
+	</RegressionModel>
+<ModelEvaluation><recall recall="0.8333333333333334" />
+       <recall calculation recall calculation="tp / (tp + fn)" />
+        <precision precision="0.78125" />
+        <precision calculation precision calculation="tp / (tp + fp)" />
+        <EvaluationMethod Prediction="Testing Dataset" />
+<Data Processing train/test ="80/20 split" />
+</ModelEvaluation>      
+    </PMML>

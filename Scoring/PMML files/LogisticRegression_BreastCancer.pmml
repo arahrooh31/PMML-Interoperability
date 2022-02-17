@@ -1,0 +1,602 @@
+<PMML xmlns="http://www.dmg.org/PMML-4_4" version="4.4">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.6.34" />
+		<Timestamp>2022-02-07T22:02:52Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="repr">PMMLPipeline(steps=[('mapper', DataFrameMapper(drop_cols=[],
+                features=[(['radius_mean'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['texture_mean'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['perimeter_mean'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['area_mean'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['smoothness_mean'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['compactness_mean'],
+                           [Co...
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['compactness_worst'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['concavity_worst'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['concave points_worst'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['symmetry_worst'],
+                           [ContinuousDomain(), StandardScaler()]),
+                          (['fractal_dimension_worst'],
+                           [ContinuousDomain(), StandardScaler()])])),
+       ('classifier', LogisticRegression())])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="diagnosis" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+		</DataField>
+		<DataField name="radius_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="6.981" rightMargin="28.11" />
+		</DataField>
+		<DataField name="texture_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="9.71" rightMargin="39.28" />
+		</DataField>
+		<DataField name="perimeter_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="43.79" rightMargin="188.5" />
+		</DataField>
+		<DataField name="area_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="143.5" rightMargin="2499.0" />
+		</DataField>
+		<DataField name="smoothness_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.05263" rightMargin="0.1634" />
+		</DataField>
+		<DataField name="compactness_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.01938" rightMargin="0.3454" />
+		</DataField>
+		<DataField name="concavity_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.0" rightMargin="0.4268" />
+		</DataField>
+		<DataField name="concave points_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.0" rightMargin="0.2012" />
+		</DataField>
+		<DataField name="symmetry_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.106" rightMargin="0.304" />
+		</DataField>
+		<DataField name="fractal_dimension_mean" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.04996" rightMargin="0.09744" />
+		</DataField>
+		<DataField name="radius_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.1144" rightMargin="2.873" />
+		</DataField>
+		<DataField name="texture_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.3621" rightMargin="4.885" />
+		</DataField>
+		<DataField name="perimeter_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.757" rightMargin="21.98" />
+		</DataField>
+		<DataField name="area_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="6.802" rightMargin="525.6" />
+		</DataField>
+		<DataField name="smoothness_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.001713" rightMargin="0.02333" />
+		</DataField>
+		<DataField name="compactness_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.002252" rightMargin="0.1354" />
+		</DataField>
+		<DataField name="concavity_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.0" rightMargin="0.396" />
+		</DataField>
+		<DataField name="concave points_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.0" rightMargin="0.05279" />
+		</DataField>
+		<DataField name="symmetry_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.007882" rightMargin="0.07895" />
+		</DataField>
+		<DataField name="fractal_dimension_se" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="8.948E-4" rightMargin="0.02984" />
+		</DataField>
+		<DataField name="radius_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="7.93" rightMargin="33.13" />
+		</DataField>
+		<DataField name="texture_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="12.02" rightMargin="49.54" />
+		</DataField>
+		<DataField name="perimeter_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="50.41" rightMargin="229.3" />
+		</DataField>
+		<DataField name="area_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="185.2" rightMargin="3234.0" />
+		</DataField>
+		<DataField name="smoothness_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.07117" rightMargin="0.2226" />
+		</DataField>
+		<DataField name="compactness_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.02729" rightMargin="1.058" />
+		</DataField>
+		<DataField name="concavity_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.252" />
+		</DataField>
+		<DataField name="concave points_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.0" rightMargin="0.291" />
+		</DataField>
+		<DataField name="symmetry_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.1565" rightMargin="0.6638" />
+		</DataField>
+		<DataField name="fractal_dimension_worst" optype="continuous" dataType="double">
+			<Interval closure="closedClosed" leftMargin="0.05504" rightMargin="0.2075" />
+		</DataField>
+	</DataDictionary>
+	<RegressionModel functionName="classification" algorithmName="sklearn.linear_model._logistic.LogisticRegression" normalizationMethod="logit">
+		<MiningSchema>
+			<MiningField name="diagnosis" usageType="target" />
+			<MiningField name="radius_mean" missingValueTreatment="asIs" />
+			<MiningField name="texture_mean" missingValueTreatment="asIs" />
+			<MiningField name="perimeter_mean" missingValueTreatment="asIs" />
+			<MiningField name="area_mean" missingValueTreatment="asIs" />
+			<MiningField name="smoothness_mean" missingValueTreatment="asIs" />
+			<MiningField name="compactness_mean" missingValueTreatment="asIs" />
+			<MiningField name="concavity_mean" missingValueTreatment="asIs" />
+			<MiningField name="concave points_mean" missingValueTreatment="asIs" />
+			<MiningField name="symmetry_mean" missingValueTreatment="asIs" />
+			<MiningField name="fractal_dimension_mean" missingValueTreatment="asIs" />
+			<MiningField name="radius_se" missingValueTreatment="asIs" />
+			<MiningField name="texture_se" missingValueTreatment="asIs" />
+			<MiningField name="perimeter_se" missingValueTreatment="asIs" />
+			<MiningField name="area_se" missingValueTreatment="asIs" />
+			<MiningField name="smoothness_se" missingValueTreatment="asIs" />
+			<MiningField name="compactness_se" missingValueTreatment="asIs" />
+			<MiningField name="concavity_se" missingValueTreatment="asIs" />
+			<MiningField name="concave points_se" missingValueTreatment="asIs" />
+			<MiningField name="symmetry_se" missingValueTreatment="asIs" />
+			<MiningField name="fractal_dimension_se" missingValueTreatment="asIs" />
+			<MiningField name="radius_worst" missingValueTreatment="asIs" />
+			<MiningField name="texture_worst" missingValueTreatment="asIs" />
+			<MiningField name="perimeter_worst" missingValueTreatment="asIs" />
+			<MiningField name="area_worst" missingValueTreatment="asIs" />
+			<MiningField name="smoothness_worst" missingValueTreatment="asIs" />
+			<MiningField name="compactness_worst" missingValueTreatment="asIs" />
+			<MiningField name="concavity_worst" missingValueTreatment="asIs" />
+			<MiningField name="concave points_worst" missingValueTreatment="asIs" />
+			<MiningField name="symmetry_worst" missingValueTreatment="asIs" />
+			<MiningField name="fractal_dimension_worst" missingValueTreatment="asIs" />
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0" />
+			<OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1" />
+		</Output>
+		<ModelStats>
+			<UnivariateStats field="radius_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="6.981" maximum="28.11" mean="14.01012311557789" standardDeviation="3.5248818166749896" median="13.274999999999999" interQuartileRange="4.035000000000002" />
+			</UnivariateStats>
+			<UnivariateStats field="texture_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="9.71" maximum="39.28" mean="19.279798994974875" standardDeviation="4.275233275224514" median="18.835" interQuartileRange="5.57" />
+			</UnivariateStats>
+			<UnivariateStats field="perimeter_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="43.79" maximum="188.5" mean="91.2386432160804" standardDeviation="24.37053467757109" median="86.14" interQuartileRange="28.797500000000014" />
+			</UnivariateStats>
+			<UnivariateStats field="area_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="143.5" maximum="2499.0" mean="644.1097989949749" standardDeviation="349.73960698343046" median="542.3499999999999" interQuartileRange="345.975" />
+			</UnivariateStats>
+			<UnivariateStats field="smoothness_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.05263" maximum="0.1634" mean="0.09645522613065327" standardDeviation="0.014498842522649994" median="0.09590499999999999" interQuartileRange="0.019037500000000013" />
+			</UnivariateStats>
+			<UnivariateStats field="compactness_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.01938" maximum="0.3454" mean="0.10542206030150755" standardDeviation="0.054475329525491965" median="0.09223" interQuartileRange="0.06584750000000002" />
+			</UnivariateStats>
+			<UnivariateStats field="concavity_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.0" maximum="0.4268" mean="0.08968944648241206" standardDeviation="0.08249458659495018" median="0.061399999999999996" interQuartileRange="0.09597999999999998" />
+			</UnivariateStats>
+			<UnivariateStats field="concave points_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.0" maximum="0.2012" mean="0.04884433668341709" standardDeviation="0.039816391242301345" median="0.033025" interQuartileRange="0.053270000000000005" />
+			</UnivariateStats>
+			<UnivariateStats field="symmetry_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.106" maximum="0.304" mean="0.18232763819095477" standardDeviation="0.028319549331183847" median="0.17995" interQuartileRange="0.033475000000000005" />
+			</UnivariateStats>
+			<UnivariateStats field="fractal_dimension_mean">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.04996" maximum="0.09744" mean="0.06304361809045227" standardDeviation="0.007172017964512557" median="0.06166" interQuartileRange="0.00831500000000001" />
+			</UnivariateStats>
+			<UnivariateStats field="radius_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.1144" maximum="2.873" mean="0.3998582914572864" standardDeviation="0.27080439002605255" median="0.3173" interQuartileRange="0.231675" />
+			</UnivariateStats>
+			<UnivariateStats field="texture_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.3621" maximum="4.885" mean="1.218796231155779" standardDeviation="0.5489616600747514" median="1.088" interQuartileRange="0.6214500000000001" />
+			</UnivariateStats>
+			<UnivariateStats field="perimeter_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.757" maximum="21.98" mean="2.8203896984924626" standardDeviation="1.9665764997365318" median="2.266" interQuartileRange="1.6975" />
+			</UnivariateStats>
+			<UnivariateStats field="area_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="6.802" maximum="525.6" mean="39.27785427135679" standardDeviation="42.672743178235535" median="24.065" interQuartileRange="25.7575" />
+			</UnivariateStats>
+			<UnivariateStats field="smoothness_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.001713" maximum="0.02333" mean="0.007084371859296483" standardDeviation="0.0028771987619891715" median="0.006438" interQuartileRange="0.0030529999999999993" />
+			</UnivariateStats>
+			<UnivariateStats field="compactness_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.002252" maximum="0.1354" mean="0.026096763819095477" standardDeviation="0.01834959832565996" median="0.021179999999999997" interQuartileRange="0.019122500000000004" />
+			</UnivariateStats>
+			<UnivariateStats field="concavity_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.0" maximum="0.396" mean="0.032241014321608044" standardDeviation="0.03191826711663976" median="0.026244999999999997" interQuartileRange="0.027459999999999995" />
+			</UnivariateStats>
+			<UnivariateStats field="concave points_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.0" maximum="0.05279" mean="0.01181974623115578" standardDeviation="0.006001555116174957" median="0.01105" interQuartileRange="0.0066455" />
+			</UnivariateStats>
+			<UnivariateStats field="symmetry_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.007882" maximum="0.07895" mean="0.020961153266331665" standardDeviation="0.008455577122913288" median="0.01897" interQuartileRange="0.008455" />
+			</UnivariateStats>
+			<UnivariateStats field="fractal_dimension_se">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="8.948E-4" maximum="0.02984" mean="0.0038613550251256285" standardDeviation="0.002787254330254054" median="0.0032335" interQuartileRange="0.002322" />
+			</UnivariateStats>
+			<UnivariateStats field="radius_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="7.93" maximum="33.13" mean="16.089477386934675" standardDeviation="4.774087750817293" median="14.91" interQuartileRange="5.059999999999999" />
+			</UnivariateStats>
+			<UnivariateStats field="texture_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="12.02" maximum="49.54" mean="25.634874371859297" standardDeviation="6.112708309224709" median="25.335" interQuartileRange="8.192500000000003" />
+			</UnivariateStats>
+			<UnivariateStats field="perimeter_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="50.41" maximum="229.3" mean="106.16442211055276" standardDeviation="33.430581793290756" median="97.18" interQuartileRange="40.02999999999999" />
+			</UnivariateStats>
+			<UnivariateStats field="area_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="185.2" maximum="3234.0" mean="859.9389447236181" standardDeviation="550.2509956437394" median="680.65" interQuartileRange="480.79999999999995" />
+			</UnivariateStats>
+			<UnivariateStats field="smoothness_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.07117" maximum="0.2226" mean="0.132501432160804" standardDeviation="0.023552840789498156" median="0.13135" interQuartileRange="0.032125" />
+			</UnivariateStats>
+			<UnivariateStats field="compactness_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.02729" maximum="1.058" mean="0.2591175376884422" standardDeviation="0.16392780833707968" median="0.21685" interQuartileRange="0.19725000000000004" />
+			</UnivariateStats>
+			<UnivariateStats field="concavity_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.0" maximum="1.252" mean="0.273917" standardDeviation="0.2156933973541515" median="0.22655" interQuartileRange="0.266925" />
+			</UnivariateStats>
+			<UnivariateStats field="concave points_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.0" maximum="0.291" mean="0.11426090703517588" standardDeviation="0.06682167561468112" median="0.098095" interQuartileRange="0.0975575" />
+			</UnivariateStats>
+			<UnivariateStats field="symmetry_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.1565" maximum="0.6638" mean="0.29288190954773874" standardDeviation="0.06473061514505439" median="0.28445" interQuartileRange="0.06932500000000003" />
+			</UnivariateStats>
+			<UnivariateStats field="fractal_dimension_worst">
+				<Counts totalFreq="398" missingFreq="0" invalidFreq="0" />
+				<NumericInfo minimum="0.05504" maximum="0.2075" mean="0.08444826633165829" standardDeviation="0.0187383253237614" median="0.08024500000000001" interQuartileRange="0.021047499999999997" />
+			</UnivariateStats>
+		</ModelStats>
+		<LocalTransformations>
+			<DerivedField name="standardScaler(radius_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="radius_mean" />
+						<Constant dataType="double">14.01012311557789</Constant>
+					</Apply>
+					<Constant dataType="double">3.5248818166749896</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(texture_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="texture_mean" />
+						<Constant dataType="double">19.279798994974875</Constant>
+					</Apply>
+					<Constant dataType="double">4.275233275224514</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(perimeter_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="perimeter_mean" />
+						<Constant dataType="double">91.2386432160804</Constant>
+					</Apply>
+					<Constant dataType="double">24.37053467757109</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(area_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="area_mean" />
+						<Constant dataType="double">644.1097989949749</Constant>
+					</Apply>
+					<Constant dataType="double">349.73960698343046</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(smoothness_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="smoothness_mean" />
+						<Constant dataType="double">0.09645522613065327</Constant>
+					</Apply>
+					<Constant dataType="double">0.014498842522649994</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(compactness_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="compactness_mean" />
+						<Constant dataType="double">0.10542206030150755</Constant>
+					</Apply>
+					<Constant dataType="double">0.054475329525491965</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concavity_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concavity_mean" />
+						<Constant dataType="double">0.08968944648241206</Constant>
+					</Apply>
+					<Constant dataType="double">0.08249458659495018</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concave points_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concave points_mean" />
+						<Constant dataType="double">0.04884433668341709</Constant>
+					</Apply>
+					<Constant dataType="double">0.039816391242301345</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(symmetry_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="symmetry_mean" />
+						<Constant dataType="double">0.18232763819095477</Constant>
+					</Apply>
+					<Constant dataType="double">0.028319549331183847</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(fractal_dimension_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="fractal_dimension_mean" />
+						<Constant dataType="double">0.06304361809045227</Constant>
+					</Apply>
+					<Constant dataType="double">0.007172017964512557</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(radius_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="radius_se" />
+						<Constant dataType="double">0.3998582914572864</Constant>
+					</Apply>
+					<Constant dataType="double">0.27080439002605255</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(texture_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="texture_se" />
+						<Constant dataType="double">1.218796231155779</Constant>
+					</Apply>
+					<Constant dataType="double">0.5489616600747514</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(perimeter_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="perimeter_se" />
+						<Constant dataType="double">2.8203896984924626</Constant>
+					</Apply>
+					<Constant dataType="double">1.9665764997365318</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(area_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="area_se" />
+						<Constant dataType="double">39.27785427135679</Constant>
+					</Apply>
+					<Constant dataType="double">42.672743178235535</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(smoothness_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="smoothness_se" />
+						<Constant dataType="double">0.007084371859296483</Constant>
+					</Apply>
+					<Constant dataType="double">0.0028771987619891715</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(compactness_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="compactness_se" />
+						<Constant dataType="double">0.026096763819095477</Constant>
+					</Apply>
+					<Constant dataType="double">0.01834959832565996</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concavity_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concavity_se" />
+						<Constant dataType="double">0.032241014321608044</Constant>
+					</Apply>
+					<Constant dataType="double">0.03191826711663976</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concave points_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concave points_se" />
+						<Constant dataType="double">0.01181974623115578</Constant>
+					</Apply>
+					<Constant dataType="double">0.006001555116174957</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(symmetry_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="symmetry_se" />
+						<Constant dataType="double">0.020961153266331665</Constant>
+					</Apply>
+					<Constant dataType="double">0.008455577122913288</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(fractal_dimension_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="fractal_dimension_se" />
+						<Constant dataType="double">0.0038613550251256285</Constant>
+					</Apply>
+					<Constant dataType="double">0.002787254330254054</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(radius_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="radius_worst" />
+						<Constant dataType="double">16.089477386934675</Constant>
+					</Apply>
+					<Constant dataType="double">4.774087750817293</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(texture_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="texture_worst" />
+						<Constant dataType="double">25.634874371859297</Constant>
+					</Apply>
+					<Constant dataType="double">6.112708309224709</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(perimeter_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="perimeter_worst" />
+						<Constant dataType="double">106.16442211055276</Constant>
+					</Apply>
+					<Constant dataType="double">33.430581793290756</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(area_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="area_worst" />
+						<Constant dataType="double">859.9389447236181</Constant>
+					</Apply>
+					<Constant dataType="double">550.2509956437394</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(smoothness_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="smoothness_worst" />
+						<Constant dataType="double">0.132501432160804</Constant>
+					</Apply>
+					<Constant dataType="double">0.023552840789498156</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(compactness_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="compactness_worst" />
+						<Constant dataType="double">0.2591175376884422</Constant>
+					</Apply>
+					<Constant dataType="double">0.16392780833707968</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concavity_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concavity_worst" />
+						<Constant dataType="double">0.273917</Constant>
+					</Apply>
+					<Constant dataType="double">0.2156933973541515</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concave points_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concave points_worst" />
+						<Constant dataType="double">0.11426090703517588</Constant>
+					</Apply>
+					<Constant dataType="double">0.06682167561468112</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(symmetry_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="symmetry_worst" />
+						<Constant dataType="double">0.29288190954773874</Constant>
+					</Apply>
+					<Constant dataType="double">0.06473061514505439</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(fractal_dimension_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="fractal_dimension_worst" />
+						<Constant dataType="double">0.08444826633165829</Constant>
+					</Apply>
+					<Constant dataType="double">0.0187383253237614</Constant>
+				</Apply>
+			</DerivedField>
+		</LocalTransformations>
+		<RegressionTable intercept="-0.26558082348137" targetCategory="1">
+			<NumericPredictor name="standardScaler(radius_mean)" coefficient="0.24657536021811177" />
+			<NumericPredictor name="standardScaler(texture_mean)" coefficient="0.19684238803089033" />
+			<NumericPredictor name="standardScaler(perimeter_mean)" coefficient="0.2496713436489637" />
+			<NumericPredictor name="standardScaler(area_mean)" coefficient="0.33683316153321746" />
+			<NumericPredictor name="standardScaler(smoothness_mean)" coefficient="0.15350475629190358" />
+			<NumericPredictor name="standardScaler(compactness_mean)" coefficient="-0.40831785691649186" />
+			<NumericPredictor name="standardScaler(concavity_mean)" coefficient="0.7088874036078753" />
+			<NumericPredictor name="standardScaler(concave points_mean)" coefficient="1.004034767610244" />
+			<NumericPredictor name="standardScaler(symmetry_mean)" coefficient="-5.243110748667514E-4" />
+			<NumericPredictor name="standardScaler(fractal_dimension_mean)" coefficient="-0.2058625741014385" />
+			<NumericPredictor name="standardScaler(radius_se)" coefficient="1.2505009039259802" />
+			<NumericPredictor name="standardScaler(texture_se)" coefficient="-0.22441181645934918" />
+			<NumericPredictor name="standardScaler(perimeter_se)" coefficient="0.8384081111831698" />
+			<NumericPredictor name="standardScaler(area_se)" coefficient="0.9970045303214095" />
+			<NumericPredictor name="standardScaler(smoothness_se)" coefficient="-0.031027483051083837" />
+			<NumericPredictor name="standardScaler(compactness_se)" coefficient="-0.5621645823265938" />
+			<NumericPredictor name="standardScaler(concavity_se)" coefficient="-0.08725849276344126" />
+			<NumericPredictor name="standardScaler(concave points_se)" coefficient="0.15774086052690922" />
+			<NumericPredictor name="standardScaler(symmetry_se)" coefficient="-0.12498287781142087" />
+			<NumericPredictor name="standardScaler(fractal_dimension_se)" coefficient="-0.7517312907382274" />
+			<NumericPredictor name="standardScaler(radius_worst)" coefficient="0.9048375485974881" />
+			<NumericPredictor name="standardScaler(texture_worst)" coefficient="1.1568248957945102" />
+			<NumericPredictor name="standardScaler(perimeter_worst)" coefficient="0.7747980659580632" />
+			<NumericPredictor name="standardScaler(area_worst)" coefficient="0.921654223568074" />
+			<NumericPredictor name="standardScaler(smoothness_worst)" coefficient="0.7313687939462767" />
+			<NumericPredictor name="standardScaler(compactness_worst)" coefficient="-0.0010660245765844157" />
+			<NumericPredictor name="standardScaler(concavity_worst)" coefficient="0.7122987849231321" />
+			<NumericPredictor name="standardScaler(concave points_worst)" coefficient="0.7200908566849945" />
+			<NumericPredictor name="standardScaler(symmetry_worst)" coefficient="0.6837206572911201" />
+			<NumericPredictor name="standardScaler(fractal_dimension_worst)" coefficient="0.3323891079418751" />
+		</RegressionTable>
+		<RegressionTable intercept="0.0" targetCategory="0" />
+	</RegressionModel>
+<ModelEvaluation><recall recall="0.43548387096774194" />
+       <recall calculation recall calculation="tp / (tp + fn)" />
+   <precision precision="0.39705882352941174" />
+        <precision calculation precision calculation="tp / (tp + fp)" />
+    <EvaluationMethod Prediction="Testing Dataset" />
+<Data Processing train/test ="70/30 split" />
+</ModelEvaluation>      
+    </PMML>

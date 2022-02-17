@@ -1,0 +1,497 @@
+<PMML xmlns="http://www.dmg.org/PMML-4_4" version="4.4">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.6.34" />
+		<Timestamp>2022-02-07T21:40:02Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="repr">PMMLPipeline(steps=[('mapper', DataFrameMapper(drop_cols=[],
+                features=[(['age'], StandardScaler()), (['sex'], None),
+                          (['cp'],
+                           [CategoricalDomain(), OneHotEncoder(drop='first')]),
+                          (['trestbps'], StandardScaler()),
+                          (['chol'], StandardScaler()), (['fbs'], None),
+                          (['restecg'], StandardScaler()),
+                          (['thalach'], StandardScaler()), (['exang'], None),
+                          (['oldpeak'], StandardScaler()),
+                          (['slope'],
+                           [CategoricalDomain(), OneHotEncoder(drop='first')]),
+                          (['ca'], StandardScaler()),
+                          (['thal'],
+                           [CategoricalDomain(), OneHotEncoder(drop='first')])])),
+       ('classifier', DecisionTreeClassifier())])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="y" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+		</DataField>
+		<DataField name="age" optype="continuous" dataType="double" />
+		<DataField name="sex" optype="continuous" dataType="double" />
+		<DataField name="cp" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+			<Value value="2" />
+			<Value value="3" />
+		</DataField>
+		<DataField name="trestbps" optype="continuous" dataType="double" />
+		<DataField name="chol" optype="continuous" dataType="double" />
+		<DataField name="fbs" optype="continuous" dataType="double" />
+		<DataField name="thalach" optype="continuous" dataType="double" />
+		<DataField name="exang" optype="continuous" dataType="double" />
+		<DataField name="oldpeak" optype="continuous" dataType="double" />
+		<DataField name="slope" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+			<Value value="2" />
+		</DataField>
+		<DataField name="ca" optype="continuous" dataType="double" />
+		<DataField name="thal" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+			<Value value="2" />
+			<Value value="3" />
+		</DataField>
+	</DataDictionary>
+	<TreeModel functionName="classification" algorithmName="sklearn.tree._classes.DecisionTreeClassifier" missingValueStrategy="nullPrediction">
+		<MiningSchema>
+			<MiningField name="y" usageType="target" />
+			<MiningField name="cp" missingValueTreatment="asIs" />
+			<MiningField name="slope" missingValueTreatment="asIs" />
+			<MiningField name="thal" missingValueTreatment="asIs" />
+			<MiningField name="exang" />
+			<MiningField name="fbs" />
+			<MiningField name="sex" />
+			<MiningField name="ca" />
+			<MiningField name="age" />
+			<MiningField name="chol" />
+			<MiningField name="trestbps" />
+			<MiningField name="oldpeak" />
+			<MiningField name="thalach" />
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0" />
+			<OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1" />
+		</Output>
+		<ModelStats>
+			<UnivariateStats field="cp">
+				<Counts totalFreq="242" missingFreq="0" invalidFreq="0" />
+				<DiscrStats>
+					<Array type="string">0 1 2 3</Array>
+					<Array type="int">116 36 71 19</Array>
+				</DiscrStats>
+			</UnivariateStats>
+			<UnivariateStats field="slope">
+				<Counts totalFreq="242" missingFreq="0" invalidFreq="0" />
+				<DiscrStats>
+					<Array type="string">0 1 2</Array>
+					<Array type="int">18 112 112</Array>
+				</DiscrStats>
+			</UnivariateStats>
+			<UnivariateStats field="thal">
+				<Counts totalFreq="242" missingFreq="0" invalidFreq="0" />
+				<DiscrStats>
+					<Array type="string">0 1 2 3</Array>
+					<Array type="int">1 14 133 94</Array>
+				</DiscrStats>
+			</UnivariateStats>
+		</ModelStats>
+		<LocalTransformations>
+			<DerivedField name="standardScaler(age)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="age" />
+						<Constant dataType="double">54.32644628099174</Constant>
+					</Apply>
+					<Constant dataType="double">9.252922420592018</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(trestbps)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="trestbps" />
+						<Constant dataType="double">131.81404958677686</Constant>
+					</Apply>
+					<Constant dataType="double">17.796442237933952</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(chol)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="chol" />
+						<Constant dataType="double">248.19834710743802</Constant>
+					</Apply>
+					<Constant dataType="double">52.42375334353043</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(thalach)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="thalach" />
+						<Constant dataType="double">149.70247933884298</Constant>
+					</Apply>
+					<Constant dataType="double">23.42497947222935</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(oldpeak)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="oldpeak" />
+						<Constant dataType="double">0.9999999999999999</Constant>
+					</Apply>
+					<Constant dataType="double">1.128115520724351</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(ca)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="ca" />
+						<Constant dataType="double">0.743801652892562</Constant>
+					</Apply>
+					<Constant dataType="double">1.032760287723194</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="float(standardScaler(ca))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(ca)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(ca)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(ca))" />
+			</DerivedField>
+			<DerivedField name="float(exang)" optype="continuous" dataType="float">
+				<FieldRef field="exang" />
+			</DerivedField>
+			<DerivedField name="double(float(exang))" optype="continuous" dataType="double">
+				<FieldRef field="float(exang)" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(age))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(age)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(age)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(age))" />
+			</DerivedField>
+			<DerivedField name="float(fbs)" optype="continuous" dataType="float">
+				<FieldRef field="fbs" />
+			</DerivedField>
+			<DerivedField name="double(float(fbs))" optype="continuous" dataType="double">
+				<FieldRef field="float(fbs)" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(chol))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(chol)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(chol)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(chol))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(trestbps))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(trestbps)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(trestbps)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(trestbps))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(oldpeak))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(oldpeak)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(oldpeak)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(oldpeak))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(thalach))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(thalach)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(thalach)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(thalach))" />
+			</DerivedField>
+			<DerivedField name="float(sex)" optype="continuous" dataType="float">
+				<FieldRef field="sex" />
+			</DerivedField>
+			<DerivedField name="double(float(sex))" optype="continuous" dataType="double">
+				<FieldRef field="float(sex)" />
+			</DerivedField>
+		</LocalTransformations>
+		<Node>
+			<True />
+			<Node>
+				<SimplePredicate field="thal" operator="equal" value="2" />
+				<Node>
+					<SimplePredicate field="double(float(standardScaler(age)))" operator="lessOrEqual" value="0.23490455746650696" />
+					<Node score="0" recordCount="3">
+						<SimplePredicate field="double(float(standardScaler(thalach)))" operator="lessOrEqual" value="-1.2679831385612488" />
+						<ScoreDistribution value="0" recordCount="3" />
+						<ScoreDistribution value="1" recordCount="0" />
+					</Node>
+					<Node>
+						<SimplePredicate field="double(float(standardScaler(trestbps)))" operator="lessOrEqual" value="-1.029084861278534" />
+						<Node score="1" recordCount="10">
+							<SimplePredicate field="double(float(sex))" operator="lessOrEqual" value="0.5" />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="10" />
+						</Node>
+						<Node>
+							<SimplePredicate field="double(float(standardScaler(ca)))" operator="lessOrEqual" value="-0.236067995429039" />
+							<Node score="1" recordCount="2">
+								<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="-0.17546143382787704" />
+								<ScoreDistribution value="0" recordCount="0" />
+								<ScoreDistribution value="1" recordCount="2" />
+							</Node>
+							<Node score="0" recordCount="1">
+								<True />
+								<ScoreDistribution value="0" recordCount="1" />
+								<ScoreDistribution value="1" recordCount="0" />
+							</Node>
+						</Node>
+						<Node score="0" recordCount="3">
+							<True />
+							<ScoreDistribution value="0" recordCount="3" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+					</Node>
+					<Node score="1" recordCount="62">
+						<True />
+						<ScoreDistribution value="0" recordCount="0" />
+						<ScoreDistribution value="1" recordCount="62" />
+					</Node>
+				</Node>
+				<Node>
+					<SimplePredicate field="double(float(sex))" operator="lessOrEqual" value="0.5" />
+					<Node>
+						<SimplePredicate field="slope" operator="equal" value="2" />
+						<Node score="1" recordCount="14">
+							<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="1.5127045512199402" />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="14" />
+						</Node>
+						<Node score="1" recordCount="3">
+							<SimplePredicate field="cp" operator="equal" value="2" />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="3" />
+						</Node>
+						<Node score="0" recordCount="1">
+							<True />
+							<ScoreDistribution value="0" recordCount="1" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+					</Node>
+					<Node>
+						<SimplePredicate field="double(float(standardScaler(age)))" operator="lessOrEqual" value="0.9914222955703735" />
+						<Node>
+							<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="1.8274474143981934" />
+							<Node score="1" recordCount="1">
+								<SimplePredicate field="double(float(standardScaler(trestbps)))" operator="lessOrEqual" value="-1.56289941072464" />
+								<ScoreDistribution value="0" recordCount="0" />
+								<ScoreDistribution value="1" recordCount="1" />
+							</Node>
+							<Node score="0" recordCount="7">
+								<True />
+								<ScoreDistribution value="0" recordCount="7" />
+								<ScoreDistribution value="1" recordCount="0" />
+							</Node>
+						</Node>
+						<Node score="1" recordCount="1">
+							<True />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="1" />
+						</Node>
+					</Node>
+					<Node score="1" recordCount="5">
+						<True />
+						<ScoreDistribution value="0" recordCount="0" />
+						<ScoreDistribution value="1" recordCount="5" />
+					</Node>
+				</Node>
+				<Node>
+					<SimplePredicate field="double(float(standardScaler(thalach)))" operator="lessOrEqual" value="0.631698340177536" />
+					<Node>
+						<SimplePredicate field="double(float(fbs))" operator="lessOrEqual" value="0.5" />
+						<Node score="0" recordCount="11">
+							<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="0.9976708889007568" />
+							<ScoreDistribution value="0" recordCount="11" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+						<Node score="1" recordCount="1">
+							<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="1.045359194278717" />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="1" />
+						</Node>
+						<Node score="0" recordCount="3">
+							<True />
+							<ScoreDistribution value="0" recordCount="3" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+					</Node>
+					<Node score="1" recordCount="2">
+						<True />
+						<ScoreDistribution value="0" recordCount="0" />
+						<ScoreDistribution value="1" recordCount="2" />
+					</Node>
+				</Node>
+				<Node score="1" recordCount="3">
+					<True />
+					<ScoreDistribution value="0" recordCount="0" />
+					<ScoreDistribution value="1" recordCount="3" />
+				</Node>
+			</Node>
+			<Node>
+				<SimplePredicate field="double(float(standardScaler(ca)))" operator="lessOrEqual" value="-0.236067995429039" />
+				<Node>
+					<SimplePredicate field="double(float(exang))" operator="lessOrEqual" value="0.5" />
+					<Node>
+						<SimplePredicate field="double(float(standardScaler(age)))" operator="lessOrEqual" value="-0.35950224101543427" />
+						<Node score="1" recordCount="3">
+							<SimplePredicate field="cp" operator="equal" value="1" />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="3" />
+						</Node>
+						<Node>
+							<SimplePredicate field="double(float(fbs))" operator="lessOrEqual" value="0.5" />
+							<Node>
+								<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="-0.633269190788269" />
+								<Node score="0" recordCount="1">
+									<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="-1.0815392434597015" />
+									<ScoreDistribution value="0" recordCount="1" />
+									<ScoreDistribution value="1" recordCount="0" />
+								</Node>
+								<Node score="1" recordCount="1">
+									<True />
+									<ScoreDistribution value="0" recordCount="0" />
+									<ScoreDistribution value="1" recordCount="1" />
+								</Node>
+							</Node>
+							<Node score="0" recordCount="6">
+								<True />
+								<ScoreDistribution value="0" recordCount="6" />
+								<ScoreDistribution value="1" recordCount="0" />
+							</Node>
+						</Node>
+						<Node score="1" recordCount="1">
+							<True />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="1" />
+						</Node>
+					</Node>
+					<Node score="1" recordCount="10">
+						<SimplePredicate field="double(float(standardScaler(trestbps)))" operator="lessOrEqual" value="1.0780778527259827" />
+						<ScoreDistribution value="0" recordCount="0" />
+						<ScoreDistribution value="1" recordCount="10" />
+					</Node>
+					<Node>
+						<SimplePredicate field="slope" operator="equal" value="1" />
+						<Node score="0" recordCount="1">
+							<SimplePredicate field="double(float(standardScaler(oldpeak)))" operator="lessOrEqual" value="-0.5318604111671448" />
+							<ScoreDistribution value="0" recordCount="1" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+						<Node score="0" recordCount="1">
+							<SimplePredicate field="double(float(standardScaler(trestbps)))" operator="lessOrEqual" value="1.6399878859519958" />
+							<ScoreDistribution value="0" recordCount="1" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+						<Node score="1" recordCount="1">
+							<True />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="1" />
+						</Node>
+					</Node>
+					<Node score="1" recordCount="2">
+						<True />
+						<ScoreDistribution value="0" recordCount="0" />
+						<ScoreDistribution value="1" recordCount="2" />
+					</Node>
+				</Node>
+				<Node>
+					<SimplePredicate field="double(float(standardScaler(oldpeak)))" operator="lessOrEqual" value="0.4875387102365494" />
+					<Node>
+						<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="-0.14684845507144928" />
+						<Node>
+							<SimplePredicate field="double(float(standardScaler(age)))" operator="lessOrEqual" value="-0.19739129394292831" />
+							<Node score="0" recordCount="2">
+								<SimplePredicate field="slope" operator="equal" value="1" />
+								<ScoreDistribution value="0" recordCount="2" />
+								<ScoreDistribution value="1" recordCount="0" />
+							</Node>
+							<Node score="1" recordCount="1">
+								<True />
+								<ScoreDistribution value="0" recordCount="0" />
+								<ScoreDistribution value="1" recordCount="1" />
+							</Node>
+						</Node>
+						<Node score="1" recordCount="4">
+							<True />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="4" />
+						</Node>
+					</Node>
+					<Node score="0" recordCount="4">
+						<True />
+						<ScoreDistribution value="0" recordCount="4" />
+						<ScoreDistribution value="1" recordCount="0" />
+					</Node>
+				</Node>
+				<Node score="0" recordCount="10">
+					<True />
+					<ScoreDistribution value="0" recordCount="10" />
+					<ScoreDistribution value="1" recordCount="0" />
+				</Node>
+			</Node>
+			<Node>
+				<SimplePredicate field="double(float(standardScaler(trestbps)))" operator="lessOrEqual" value="-1.2819443941116333" />
+				<Node score="1" recordCount="2">
+					<SimplePredicate field="double(float(standardScaler(thalach)))" operator="lessOrEqual" value="0.22614835947752" />
+					<ScoreDistribution value="0" recordCount="0" />
+					<ScoreDistribution value="1" recordCount="2" />
+				</Node>
+				<Node score="0" recordCount="1">
+					<True />
+					<ScoreDistribution value="0" recordCount="1" />
+					<ScoreDistribution value="1" recordCount="0" />
+				</Node>
+			</Node>
+			<Node>
+				<SimplePredicate field="cp" operator="equal" value="1" />
+				<Node score="0" recordCount="1">
+					<SimplePredicate field="thal" operator="equal" value="1" />
+					<ScoreDistribution value="0" recordCount="1" />
+					<ScoreDistribution value="1" recordCount="0" />
+				</Node>
+				<Node score="1" recordCount="1">
+					<True />
+					<ScoreDistribution value="0" recordCount="0" />
+					<ScoreDistribution value="1" recordCount="1" />
+				</Node>
+			</Node>
+			<Node>
+				<SimplePredicate field="cp" operator="equal" value="2" />
+				<Node>
+					<SimplePredicate field="double(float(standardScaler(chol)))" operator="lessOrEqual" value="0.4730995148420334" />
+					<Node score="0" recordCount="6">
+						<SimplePredicate field="double(float(standardScaler(ca)))" operator="lessOrEqual" value="1.216350331902504" />
+						<ScoreDistribution value="0" recordCount="6" />
+						<ScoreDistribution value="1" recordCount="0" />
+					</Node>
+					<Node score="1" recordCount="1">
+						<SimplePredicate field="double(float(standardScaler(oldpeak)))" operator="lessOrEqual" value="0.7977906167507172" />
+						<ScoreDistribution value="0" recordCount="0" />
+						<ScoreDistribution value="1" recordCount="1" />
+					</Node>
+					<Node score="0" recordCount="2">
+						<True />
+						<ScoreDistribution value="0" recordCount="2" />
+						<ScoreDistribution value="1" recordCount="0" />
+					</Node>
+				</Node>
+				<Node score="1" recordCount="1">
+					<True />
+					<ScoreDistribution value="0" recordCount="0" />
+					<ScoreDistribution value="1" recordCount="1" />
+				</Node>
+			</Node>
+			<Node score="0" recordCount="46">
+				<True />
+				<ScoreDistribution value="0" recordCount="46" />
+				<ScoreDistribution value="1" recordCount="0" />
+			</Node>
+		</Node>
+	</TreeModel>
+<ModelEvaluation><recall recall="0.7272727272727273" />
+       <recall calculation recall calculation="tp / (tp + fn)" />
+     <precision precision="0.7272727272727273" />
+        <precision calculation precision calculation="tp / (tp + fp)" />
+    <Data Processing train/test ="80/20 split" />
+</ModelEvaluation>      
+    </PMML>

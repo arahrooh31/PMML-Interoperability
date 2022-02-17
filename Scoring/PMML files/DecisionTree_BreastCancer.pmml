@@ -1,0 +1,336 @@
+<PMML xmlns="http://www.dmg.org/PMML-4_4" version="4.4">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.6.34" />
+		<Timestamp>2022-02-07T21:54:00Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="repr">PMMLPipeline(steps=[('scaler', StandardScaler()),
+       ('classifier', DecisionTreeClassifier())])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="diagnosis" optype="categorical" dataType="integer">
+			<Value value="0" />
+			<Value value="1" />
+		</DataField>
+		<DataField name="texture_mean" optype="continuous" dataType="double" />
+		<DataField name="concavity_mean" optype="continuous" dataType="double" />
+		<DataField name="area_se" optype="continuous" dataType="double" />
+		<DataField name="smoothness_se" optype="continuous" dataType="double" />
+		<DataField name="symmetry_se" optype="continuous" dataType="double" />
+		<DataField name="fractal_dimension_se" optype="continuous" dataType="double" />
+		<DataField name="radius_worst" optype="continuous" dataType="double" />
+		<DataField name="area_worst" optype="continuous" dataType="double" />
+		<DataField name="concavity_worst" optype="continuous" dataType="double" />
+		<DataField name="concave points_worst" optype="continuous" dataType="double" />
+		<DataField name="fractal_dimension_worst" optype="continuous" dataType="double" />
+	</DataDictionary>
+	<TreeModel functionName="classification" algorithmName="sklearn.tree._classes.DecisionTreeClassifier" missingValueStrategy="nullPrediction">
+		<MiningSchema>
+			<MiningField name="diagnosis" usageType="target" />
+			<MiningField name="area_worst" />
+			<MiningField name="concave points_worst" />
+			<MiningField name="fractal_dimension_worst" />
+			<MiningField name="area_se" />
+			<MiningField name="smoothness_se" />
+			<MiningField name="concavity_worst" />
+			<MiningField name="symmetry_se" />
+			<MiningField name="fractal_dimension_se" />
+			<MiningField name="texture_mean" />
+			<MiningField name="radius_worst" />
+			<MiningField name="concavity_mean" />
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0" />
+			<OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1" />
+		</Output>
+		<LocalTransformations>
+			<DerivedField name="standardScaler(texture_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="texture_mean" />
+						<Constant dataType="double">19.177336683417085</Constant>
+					</Apply>
+					<Constant dataType="double">4.2867713357064225</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concavity_mean)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concavity_mean" />
+						<Constant dataType="double">0.08618040879396985</Constant>
+					</Apply>
+					<Constant dataType="double">0.07665803625958814</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(area_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="area_se" />
+						<Constant dataType="double">39.530281407035176</Constant>
+					</Apply>
+					<Constant dataType="double">41.304195433007116</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(smoothness_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="smoothness_se" />
+						<Constant dataType="double">0.0071526608040200996</Constant>
+					</Apply>
+					<Constant dataType="double">0.0032082118304072728</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(symmetry_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="symmetry_se" />
+						<Constant dataType="double">0.020709718592964825</Constant>
+					</Apply>
+					<Constant dataType="double">0.008522371220045942</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(fractal_dimension_se)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="fractal_dimension_se" />
+						<Constant dataType="double">0.003843575628140704</Constant>
+					</Apply>
+					<Constant dataType="double">0.002847095139312253</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(radius_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="radius_worst" />
+						<Constant dataType="double">16.13141959798995</Constant>
+					</Apply>
+					<Constant dataType="double">4.668976262416945</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(area_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="area_worst" />
+						<Constant dataType="double">861.1788944723617</Constant>
+					</Apply>
+					<Constant dataType="double">525.9403029031654</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concavity_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concavity_worst" />
+						<Constant dataType="double">0.2623404070351759</Constant>
+					</Apply>
+					<Constant dataType="double">0.19417800473485453</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(concave points_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="concave points_worst" />
+						<Constant dataType="double">0.11194264070351759</Constant>
+					</Apply>
+					<Constant dataType="double">0.06422925356167157</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standardScaler(fractal_dimension_worst)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="fractal_dimension_worst" />
+						<Constant dataType="double">0.08303560301507537</Constant>
+					</Apply>
+					<Constant dataType="double">0.01687118647810777</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="float(standardScaler(area_worst))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(area_worst)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(area_worst)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(area_worst))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(concave points_worst))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(concave points_worst)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(concave points_worst)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(concave points_worst))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(fractal_dimension_worst))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(fractal_dimension_worst)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(fractal_dimension_worst)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(fractal_dimension_worst))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(area_se))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(area_se)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(area_se)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(area_se))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(smoothness_se))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(smoothness_se)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(smoothness_se)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(smoothness_se))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(concavity_worst))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(concavity_worst)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(concavity_worst)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(concavity_worst))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(symmetry_se))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(symmetry_se)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(symmetry_se)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(symmetry_se))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(fractal_dimension_se))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(fractal_dimension_se)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(fractal_dimension_se)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(fractal_dimension_se))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(texture_mean))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(texture_mean)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(texture_mean)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(texture_mean))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(radius_worst))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(radius_worst)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(radius_worst)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(radius_worst))" />
+			</DerivedField>
+			<DerivedField name="float(standardScaler(concavity_mean))" optype="continuous" dataType="float">
+				<FieldRef field="standardScaler(concavity_mean)" />
+			</DerivedField>
+			<DerivedField name="double(float(standardScaler(concavity_mean)))" optype="continuous" dataType="double">
+				<FieldRef field="float(standardScaler(concavity_mean))" />
+			</DerivedField>
+		</LocalTransformations>
+		<Node>
+			<True />
+			<Node>
+				<SimplePredicate field="double(float(standardScaler(area_worst)))" operator="lessOrEqual" value="0.044436803087592125" />
+				<Node>
+					<SimplePredicate field="double(float(standardScaler(concave points_worst)))" operator="lessOrEqual" value="0.7528868317604065" />
+					<Node>
+						<SimplePredicate field="double(float(standardScaler(concave points_worst)))" operator="lessOrEqual" value="0.30994226038455963" />
+						<Node score="1" recordCount="1">
+							<SimplePredicate field="double(float(standardScaler(fractal_dimension_worst)))" operator="lessOrEqual" value="-1.6543354988098145" />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="1" />
+						</Node>
+						<Node>
+							<SimplePredicate field="double(float(standardScaler(area_se)))" operator="lessOrEqual" value="-0.04649119544774294" />
+							<Node>
+								<SimplePredicate field="double(float(standardScaler(smoothness_se)))" operator="lessOrEqual" value="-1.2027450203895569" />
+								<Node score="0" recordCount="4">
+									<SimplePredicate field="double(float(standardScaler(concavity_worst)))" operator="lessOrEqual" value="-0.3480847626924515" />
+									<ScoreDistribution value="0" recordCount="4" />
+									<ScoreDistribution value="1" recordCount="0" />
+								</Node>
+								<Node score="1" recordCount="1">
+									<True />
+									<ScoreDistribution value="0" recordCount="0" />
+									<ScoreDistribution value="1" recordCount="1" />
+								</Node>
+							</Node>
+							<Node score="0" recordCount="220">
+								<True />
+								<ScoreDistribution value="0" recordCount="220" />
+								<ScoreDistribution value="1" recordCount="0" />
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(float(standardScaler(symmetry_se)))" operator="lessOrEqual" value="0.5128011107444763" />
+							<Node score="0" recordCount="1">
+								<SimplePredicate field="double(float(standardScaler(fractal_dimension_se)))" operator="lessOrEqual" value="-0.6087171584367752" />
+								<ScoreDistribution value="0" recordCount="1" />
+								<ScoreDistribution value="1" recordCount="0" />
+							</Node>
+							<Node score="1" recordCount="2">
+								<True />
+								<ScoreDistribution value="0" recordCount="0" />
+								<ScoreDistribution value="1" recordCount="2" />
+							</Node>
+						</Node>
+						<Node score="0" recordCount="8">
+							<True />
+							<ScoreDistribution value="0" recordCount="8" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+					</Node>
+					<Node>
+						<SimplePredicate field="double(float(standardScaler(texture_mean)))" operator="lessOrEqual" value="0.37502893060445786" />
+						<Node score="0" recordCount="13">
+							<SimplePredicate field="double(float(standardScaler(radius_worst)))" operator="lessOrEqual" value="0.040390096604824066" />
+							<ScoreDistribution value="0" recordCount="13" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+						<Node score="1" recordCount="1">
+							<SimplePredicate field="double(float(standardScaler(concavity_worst)))" operator="lessOrEqual" value="0.44216951727867126" />
+							<ScoreDistribution value="0" recordCount="0" />
+							<ScoreDistribution value="1" recordCount="1" />
+						</Node>
+						<Node score="0" recordCount="2">
+							<True />
+							<ScoreDistribution value="0" recordCount="2" />
+							<ScoreDistribution value="1" recordCount="0" />
+						</Node>
+					</Node>
+					<Node score="1" recordCount="6">
+						<True />
+						<ScoreDistribution value="0" recordCount="0" />
+						<ScoreDistribution value="1" recordCount="6" />
+					</Node>
+				</Node>
+				<Node score="0" recordCount="1">
+					<SimplePredicate field="double(float(standardScaler(area_se)))" operator="lessOrEqual" value="-0.6247617602348328" />
+					<ScoreDistribution value="0" recordCount="1" />
+					<ScoreDistribution value="1" recordCount="0" />
+				</Node>
+				<Node score="1" recordCount="11">
+					<True />
+					<ScoreDistribution value="0" recordCount="0" />
+					<ScoreDistribution value="1" recordCount="11" />
+				</Node>
+			</Node>
+			<Node>
+				<SimplePredicate field="double(float(standardScaler(concavity_mean)))" operator="lessOrEqual" value="-0.18315638601779938" />
+				<Node>
+					<SimplePredicate field="double(float(standardScaler(texture_mean)))" operator="lessOrEqual" value="0.08576695248484612" />
+					<Node score="1" recordCount="1">
+						<SimplePredicate field="double(float(standardScaler(concavity_mean)))" operator="lessOrEqual" value="-0.5597639977931976" />
+						<ScoreDistribution value="0" recordCount="0" />
+						<ScoreDistribution value="1" recordCount="1" />
+					</Node>
+					<Node score="0" recordCount="7">
+						<True />
+						<ScoreDistribution value="0" recordCount="7" />
+						<ScoreDistribution value="1" recordCount="0" />
+					</Node>
+				</Node>
+				<Node score="1" recordCount="7">
+					<True />
+					<ScoreDistribution value="0" recordCount="0" />
+					<ScoreDistribution value="1" recordCount="7" />
+				</Node>
+			</Node>
+			<Node score="1" recordCount="112">
+				<True />
+				<ScoreDistribution value="0" recordCount="0" />
+				<ScoreDistribution value="1" recordCount="112" />
+			</Node>
+		</Node>
+	</TreeModel>
+<ModelEvaluation><recall recall="0.918918918918919" />
+       <recall calculation recall calculation="tp / (tp + fn)" />
+   <precision precision="0.9714285714285714" />
+        <precision calculation precision calculation="tp / (tp + fp)" />
+        <EvaluationMethod Prediction="Testing Dataset" />
+<Data Processing train/test ="70/30 split" />
+</ModelEvaluation>      
+    </PMML>
