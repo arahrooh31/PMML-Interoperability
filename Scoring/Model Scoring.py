@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup as BS
 import csv
 
 
-
 LR_HD = "PMML Files/LogisticRegression_HeartDisease.pmml"
 LR_BC = "PMML Files/LogisticRegression_BreastCancer.pmml"
 DT_HD = "PMML Files/DecisionTree_HeartDisease.pmml"
@@ -35,8 +34,6 @@ def parsePMML(pmml):
         print('algorithm type: ', algorithm_type)
         print('model type: ', model_type)
     
-
-
 
 PMML_files = [LR_HD, LR_BC, DT_HD, DT_BC]
 
