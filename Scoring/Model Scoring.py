@@ -1,3 +1,4 @@
+#Load Dependencies
 from pypmml import Model 
 import pandas as pd 
 import xml.etree.ElementTree as elt
@@ -5,12 +6,14 @@ from bs4 import BeautifulSoup as BS
 import csv
 
 
-LR_HD = "PMML Files/LogisticRegression_HeartDisease.pmml"
-LR_BC = "PMML Files/LogisticRegression_BreastCancer.pmml"
-DT_HD = "PMML Files/DecisionTree_HeartDisease.pmml"
-DT_BC = "PMML Files/DecisionTree_BreastCancer.pmml"
+#Load in PMML Files
+LR_HD = 'Scoring/PMML Files/LogisticRegression_HeartDisease.pmml'
+LR_BC = 'Scoring/PMML Files/LogisticRegression_BreastCancer.pmml'
+DT_HD = 'Scoring/PMML Files/DecisionTree_HeartDisease.pmml'
+DT_BC = 'Scoring/PMML Files/DecisionTree_BreastCancer.pmml'
 
 
+#Parsing through PMML file to extract metadata
 def parsePMML(pmml):
     with open(pmml) as fp:
         soup = BS(fp, 'xml')
@@ -35,11 +38,14 @@ def parsePMML(pmml):
         print('model type: ', model_type)
     
 
+#Loop through all PMML files for output visualization
 PMML_files = [LR_HD, LR_BC, DT_HD, DT_BC]
 
 for pmml in PMML_files:
     parsePMML(pmml)
 
+
+#Manual method for testing each file individually
 parsePMML(DT_BC)
 parsePMML(DT_HD)
 parsePMML(LR_BC)
