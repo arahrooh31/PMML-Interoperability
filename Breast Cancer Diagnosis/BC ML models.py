@@ -14,7 +14,6 @@ breast_data.drop("id",axis=1,inplace=True)
 breast_data['diagnosis'] = breast_data['diagnosis'].map({'M':1, 'B':0})
 Y = breast_data['diagnosis']
 X = breast_data.drop('diagnosis', axis = 1)
-
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.3)
 
 
