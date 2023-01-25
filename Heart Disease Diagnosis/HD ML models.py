@@ -37,7 +37,7 @@ metrics.recall_score(predictions, Y_test)
 
 
 
-#Random Forrest Hyperparamter Tuning
+#Logistic Regression Hyperparamter Tuning
 
 # Create the model
 lrc = LogisticRegression()
@@ -60,3 +60,14 @@ grid_search.fit(X_train, Y_train)
 # Print the best parameters and score
 print("Best parameters: ", grid_search.best_params_)
 print("Best score: ", grid_search.best_score_)
+
+
+# Explanability with Shap
+import shap
+masker = shap.maskers.Independent(data = X_test)
+model = LogisticRegression(max_iter=10000, C=1, penalty='l2', solver='lbfgs')
+model.fit(X_train, Y_train)
+explainer = shap.LinearExplainer(model, masker=masker)
+shap_values = explainer(X_test)
+shap.plots.waterfall(shap_values[0])
+shap.plots.beeswarm(shap_values)
